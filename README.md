@@ -31,6 +31,15 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Steps
+
+1. **Push to GitHub** – Ensure your code is in a Git repository.
+2. **Import on Vercel** – Go to [vercel.com/new](https://vercel.com/new), import the repo, and select it as a Next.js project.
+3. **Configure environment variables** – In Project Settings → Environment Variables, add:
+   - `MONGODB_URI` (required) – Your MongoDB connection string (e.g. from [MongoDB Atlas](https://www.mongodb.com/atlas))
+   - `MONGODB_DB` (optional) – Database name (default: `career_leader`)
+4. **Deploy** – Vercel will build and deploy. New commits to your main branch will trigger automatic deployments.
+
+Copy variables from `.env.example` as a reference. Never commit `.env.local` or real secrets.
