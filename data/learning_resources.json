@@ -1,0 +1,34 @@
+[
+  {
+    "id": "r1",
+    "title": "Python Programming",
+    "type": "course",
+    "skills": ["python", "programming"],
+    "level": "beginner",
+    "url": "https://example.com/python"
+  },
+  {
+    "id": "r2",
+    "title": "Web Development",
+    "type": "course",
+    "skills": ["web", "html", "css", "javascript"],
+    "level": "beginner",
+    "url": "https://example.com/web"
+  },
+  {
+    "id": "r3",
+    "title": "Mobile App Development",
+    "type": "course",
+    "skills": ["mobile", "react-native", "flutter"],
+    "level": "intermediate",
+    "url": "https://example.com/mobile"
+  },
+  {
+    "id": "r4",
+    "title": "Machine Learning Basics",
+    "type": "course",
+    "skills": ["ml", "statistics", "python"],
+    "level": "intermediate",
+    "url": "https://example.com/ml"
+  }
+]

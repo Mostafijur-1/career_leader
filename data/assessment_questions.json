@@ -1,0 +1,17 @@
+[
+  { "id": "q1", "text": "At a party or social gathering, do you:", "dimension": "EI", "sideA": "E", "sideB": "I", "optionA": "Enjoy meeting new people and stay energized", "optionB": "Prefer talking with a few close friends", "interests": ["social", "people"] },
+  
+  { "id": "q2", "text": "When solving a problem, do you prefer to:", "dimension": "SN", "sideA": "S", "sideB": "N", "optionA": "Use proven methods and concrete facts", "optionB": "Explore new patterns and innovative ideas", "interests": ["practical", "innovation"] },
+  
+  { "id": "q3", "text": "When making important decisions, you rely more on:", "dimension": "TF", "sideA": "T", "sideB": "F", "optionA": "Objective analysis and logical reasoning", "optionB": "Personal values and people's feelings", "interests": ["analysis", "people"] },
+  
+  { "id": "q4", "text": "Do you prefer your life to be:", "dimension": "JP", "sideA": "J", "sideB": "P", "optionA": "Organized, structured, and planned", "optionB": "Flexible, spontaneous, and adaptable", "interests": ["planning", "adaptability"] },
+  
+  { "id": "q5", "text": "When you have free time, you typically:", "dimension": "EI", "sideA": "E", "sideB": "I", "optionA": "Go out and do activities with others", "optionB": "Spend time alone with hobbies or reading", "interests": ["social", "reflection"] },
+  
+  { "id": "q6", "text": "Do you trust more in:", "dimension": "SN", "sideA": "N", "sideB": "S", "optionA": "Your intuition and possibilities", "optionB": "Experience and proven facts", "interests": ["innovation", "practical"] },
+  
+  { "id": "q7", "text": "In conversations, you tend to:", "dimension": "TF", "sideA": "T", "sideB": "F", "optionA": "Point out logical inconsistencies", "optionB": "Focus on how others might feel", "interests": ["analysis", "people"] },
+  
+  { "id": "q8", "text": "When starting a project, do you:", "dimension": "JP", "sideA": "J", "sideB": "P", "optionA": "Create a detailed plan before starting", "optionB": "Figure it out as you go along", "interests": ["planning", "adaptability"] }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "m1",
+    "name": "Nazim Uddin",
+    "role": "Software Engineer",
+    "expertise": ["python", "web", "databases"],
+    "rating": 4.0,
+    "reviews": 250,
+    "recommended": true,
+    "bio": "10+ years in software development"
+  },
+  {
+    "id": "m2",
+    "name": "Khalil Ahmed",
+    "role": "Network Engineer",
+    "expertise": ["networking", "cisco", "security"],
+    "rating": 4.6,
+    "reviews": 85,
+    "recommended": true,
+    "bio": "Expert in network infrastructure"
+  },
+  {
+    "id": "m3",
+    "name": "Nazrul Islam",
+    "role": "Android Developer",
+    "expertise": ["android", "mobile", "kotlin"],
+    "rating": 3.6,
+    "reviews": 63,
+    "recommended": true,
+    "bio": "Mobile app development specialist"
+  }
+]

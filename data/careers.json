@@ -1,0 +1,42 @@
+[
+  {
+    "id": "c1",
+    "title": "Software Engineer",
+    "category": "job",
+    "description": "Designs, develops, and maintains software applications.",
+    "skills": ["programming", "algorithms", "system design"],
+    "personalities": ["INTJ", "ENTJ", "ISTJ", "ESTJ"]
+  },
+  {
+    "id": "c2",
+    "title": "Data Scientist",
+    "category": "job",
+    "description": "Extracts insights from data using statistics and ML.",
+    "skills": ["python", "statistics", "machine learning"],
+    "personalities": ["INTP", "ENTP", "INFJ"]
+  },
+  {
+    "id": "c3",
+    "title": "DevOps Engineer",
+    "category": "job",
+    "description": "Builds and maintains infrastructure and CI/CD pipelines.",
+    "skills": ["linux", "cloud", "automation"],
+    "personalities": ["ISTJ", "ISFJ", "ESTJ"]
+  },
+  {
+    "id": "c4",
+    "title": "UX Designer",
+    "category": "higher_study",
+    "description": "Designs user experiences and interfaces.",
+    "skills": ["user research", "prototyping", "visual design"],
+    "personalities": ["INFP", "ENFP", "INFJ"]
+  },
+  {
+    "id": "c5",
+    "title": "Startup Founder (Tech)",
+    "category": "entrepreneurship",
+    "description": "Starts and leads a technology-focused business.",
+    "skills": ["product", "fundraising", "leadership"],
+    "personalities": ["ENTP", "ENFP", "ESTP"]
+  }
+]
