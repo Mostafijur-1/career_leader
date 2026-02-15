@@ -72,13 +72,13 @@ export default function AuthPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center p-4 py-8 sm:py-12">
+      <div className="w-full max-w-md min-w-0">
         {user ? (
-          <div className="bg-white rounded-2xl shadow-2xl p-8">
-            <div className="text-center mb-8">
-              <div className={`text-6xl mb-4`}>{typeIcons[user.type as keyof typeof typeIcons]}</div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back!</h2>
+          <div className="bg-white rounded-2xl shadow-2xl p-5 sm:p-8">
+            <div className="text-center mb-6 sm:mb-8">
+              <div className={`text-5xl sm:text-6xl mb-3 sm:mb-4`}>{typeIcons[user.type as keyof typeof typeIcons]}</div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Welcome Back!</h2>
               <p className="text-gray-600">You're logged in as a</p>
               <p className={`text-lg font-bold mt-1 bg-gradient-to-r ${typeColors[user.type as keyof typeof typeColors]} bg-clip-text text-transparent capitalize`}>
                 {user.type}
@@ -104,16 +104,16 @@ export default function AuthPage() {
         ) : (
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
             {/* Header */}
-            <div className={`bg-gradient-to-r ${typeColors[type]} p-8 text-white text-center`}>
-              <div className="text-5xl mb-3">{typeIcons[type]}</div>
-              <h2 className="text-3xl font-bold capitalize">{mode === "login" ? "Welcome Back" : "Join Us"}</h2>
+            <div className={`bg-gradient-to-r ${typeColors[type]} p-5 sm:p-8 text-white text-center`}>
+              <div className="text-4xl sm:text-5xl mb-2 sm:mb-3">{typeIcons[type]}</div>
+              <h2 className="text-2xl sm:text-3xl font-bold capitalize">{mode === "login" ? "Welcome Back" : "Join Us"}</h2>
               <p className="text-white/80 mt-2">
                 {mode === "login" ? "Sign in to your account" : "Create a new account"}
               </p>
             </div>
 
             {/* Form */}
-            <div className="p-8">
+            <div className="p-5 sm:p-8">
               {/* Mode Toggle */}
               <div className="flex gap-2 mb-6">
                 <button

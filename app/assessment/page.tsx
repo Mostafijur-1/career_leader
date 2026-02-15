@@ -131,15 +131,15 @@ export default function AssessmentPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
       {/* Header */}
       <nav className="bg-white/10 backdrop-blur-md border-b border-white/20">
-        <div className="mx-auto max-w-5xl px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-white flex items-center gap-2">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center gap-4">
+          <Link href="/" className="text-lg sm:text-2xl font-bold text-white flex items-center gap-2 truncate min-w-0">
             <span>🚀</span> CareerLeader
           </Link>
-          <Link href="/" className="text-white/80 hover:text-white font-semibold transition">← Back Home</Link>
+          <Link href="/" className="text-white/80 hover:text-white font-semibold transition text-sm sm:text-base flex-shrink-0">← Back Home</Link>
         </div>
       </nav>
 
-      <main className="mx-auto max-w-5xl px-6 py-12">
+      <main className="mx-auto max-w-5xl px-4 sm:px-6 py-8 sm:py-12">
         {/* Loading */}
         {loadingQuestions ? (
           <div className="flex items-center justify-center py-20">
@@ -151,14 +151,14 @@ export default function AssessmentPage() {
         ) : !result ? (
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
             {/* Progress Header */}
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-8 text-white">
-              <div className="flex justify-between items-center mb-6">
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-4 sm:p-6 lg:p-8 text-white">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-4 sm:mb-6">
                 <div>
-                  <p className="text-white/80 text-sm">Question {currentQuestion + 1} of {qs.length}</p>
-                  <h2 className="text-3xl font-bold mt-1">Career Assessment</h2>
+                  <p className="text-white/80 text-xs sm:text-sm">Question {currentQuestion + 1} of {qs.length}</p>
+                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mt-1">Career Assessment</h2>
                 </div>
-                <div className="text-right">
-                  <p className="text-4xl font-bold">{progress}%</p>
+                <div className="text-left sm:text-right flex items-baseline gap-2 sm:block">
+                  <p className="text-3xl sm:text-4xl font-bold">{progress}%</p>
                   <p className="text-white/80 text-sm">Complete</p>
                 </div>
               </div>
@@ -171,7 +171,7 @@ export default function AssessmentPage() {
             </div>
 
             {/* Questions */}
-            <div className="p-8">
+            <div className="p-4 sm:p-6 lg:p-8">
               {/* Gender Selector */}
               {currentQuestion === 0 && (
                 <div className="mb-8 p-6 bg-blue-50 rounded-xl border border-blue-200">
@@ -189,8 +189,8 @@ export default function AssessmentPage() {
               )}
 
               {qs.length > 0 && qs[currentQuestion] && (
-                <div className="mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-8">{qs[currentQuestion].text}</h3>
+                <div className="mb-6 sm:mb-8">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-6 sm:mb-8">{qs[currentQuestion].text}</h3>
                   
                   {/* Answer Options - A or B */}
                   <div className="space-y-3">
@@ -229,11 +229,11 @@ export default function AssessmentPage() {
             </div>
 
             {/* Navigation */}
-            <div className="border-t border-gray-200 p-8 flex gap-4 justify-between">
+            <div className="border-t border-gray-200 p-4 sm:p-6 lg:p-8 flex flex-col-reverse sm:flex-row gap-3 sm:gap-4 justify-between">
               <button
                 onClick={() => setCurrentQuestion(Math.max(0, currentQuestion - 1))}
                 disabled={currentQuestion === 0}
-                className="px-6 py-3 rounded-lg border border-gray-300 font-bold text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition"
+                className="w-full sm:w-auto px-6 py-3 rounded-lg border border-gray-300 font-bold text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition"
               >
                 ← Previous
               </button>
@@ -241,7 +241,7 @@ export default function AssessmentPage() {
               {Object.keys(answers).length < qs.length ? (
                 <button
                   onClick={() => setCurrentQuestion(Math.min(qs.length - 1, currentQuestion + 1))}
-                  className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 font-bold text-white transition"
+                  className="w-full sm:w-auto px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 font-bold text-white transition"
                 >
                   Next →
                 </button>
@@ -249,7 +249,7 @@ export default function AssessmentPage() {
                 <button
                   onClick={submit}
                   disabled={loading}
-                  className="flex-1 rounded-lg bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 px-6 py-3 font-bold text-white disabled:opacity-50 disabled:cursor-not-allowed transition"
+                  className="w-full sm:flex-1 rounded-lg bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 px-6 py-3 font-bold text-white disabled:opacity-50 disabled:cursor-not-allowed transition"
                 >
                   {loading ? '⏳ Analyzing...' : '🎯 Submit Assessment'}
                 </button>
@@ -269,16 +269,16 @@ export default function AssessmentPage() {
                 {/* Main Personality Card */}
                 {result?.personalityType && (
                   <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-                    <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-12 text-white text-center">
-                      <p className="text-white/80 text-sm font-semibold mb-2">Your MBTI Personality Type</p>
-                      <h2 className="text-6xl font-bold mb-4">{result.personalityType}</h2>
+                    <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-6 sm:p-8 lg:p-12 text-white text-center">
+                      <p className="text-white/80 text-xs sm:text-sm font-semibold mb-2">Your MBTI Personality Type</p>
+                      <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4">{result.personalityType}</h2>
                       <p className="text-white/90 text-lg">Based on your answers, discover your unique personality profile and ideal career paths.</p>
                     </div>
 
                     {/* Interests Grid */}
                     {result.interests && result.interests.length > 0 && (
-                      <div className="p-8">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-6">Your Key Interests</h3>
+                      <div className="p-4 sm:p-6 lg:p-8">
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Your Key Interests</h3>
                         <div className="flex gap-3 flex-wrap">
                           {result.interests.map((interest: string) => (
                             <div 
@@ -297,11 +297,11 @@ export default function AssessmentPage() {
                 {/* Recommended Careers */}
                 {result?.recommendations && result.recommendations.length > 0 && (
                   <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-                    <div className="bg-gradient-to-r from-green-600 to-emerald-600 p-8 text-white">
-                      <h3 className="text-3xl font-bold">🎯 Recommended Careers</h3>
+                    <div className="bg-gradient-to-r from-green-600 to-emerald-600 p-4 sm:p-6 lg:p-8 text-white">
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold">🎯 Recommended Careers</h3>
                       <p className="text-white/80 mt-2">Perfect career paths for personality type {result.personalityType}</p>
                     </div>
-                    <div className="p-8 space-y-4">
+                    <div className="p-4 sm:p-6 lg:p-8 space-y-4">
                       {result.recommendations.map((r: any, idx: number) => (
                         <div key={r.id} className="p-6 border-l-4 border-green-500 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg hover:shadow-lg transition">
                           <div className="flex items-start gap-4">
@@ -329,16 +329,16 @@ export default function AssessmentPage() {
             )}
 
             {/* Action Buttons */}
-            <div className="mt-8 flex gap-4">
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
               <button
                 onClick={() => { setAnswers({}); setResult(null); setCurrentQuestion(0) }}
-                className="flex-1 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 px-6 py-4 font-bold text-white transition"
+                className="w-full sm:flex-1 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 px-6 py-4 font-bold text-white transition"
               >
                 🔄 Retake Assessment
               </button>
               <Link
                 href="/"
-                className="flex-1 rounded-lg bg-white hover:bg-gray-50 px-6 py-4 font-bold text-gray-900 transition border border-gray-300 text-center"
+                className="w-full sm:flex-1 rounded-lg bg-white hover:bg-gray-50 px-6 py-4 font-bold text-gray-900 transition border border-gray-300 text-center"
               >
                 ← Back Home
               </Link>

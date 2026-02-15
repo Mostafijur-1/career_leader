@@ -129,7 +129,7 @@ export default function AdminPage() {
 
   if (!user || user.type !== 'admin') {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
         <div className="text-center">
           <p className="text-gray-600 mb-4">You must be logged in as admin to access this page.</p>
           <Link href="/" className="text-blue-600 hover:text-blue-700 font-bold">
@@ -144,14 +144,14 @@ export default function AdminPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-white border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-6 py-6">
-          <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
-          <p className="text-gray-600 mt-2">Manage mentor activations</p>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+          <p className="text-gray-600 mt-2 text-sm sm:text-base">Manage mentor activations</p>
         </div>
       </div>
 
       {/* Content */}
-      <div className="max-w-6xl mx-auto px-6 py-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         {error && (
           <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
             {error}
@@ -160,93 +160,142 @@ export default function AdminPage() {
 
         {/* Mentors List */}
         <div className="bg-white rounded-lg shadow">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-900">
+          <div className="px-4 sm:px-6 py-4 border-b border-gray-200">
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
               Mentors ({mentors.length})
             </h2>
           </div>
 
           {loading ? (
-            <div className="px-6 py-12 text-center text-gray-500">
+            <div className="px-4 sm:px-6 py-12 text-center text-gray-500">
               Loading mentors...
             </div>
           ) : mentors.length === 0 ? (
-            <div className="px-6 py-12 text-center text-gray-500">
+            <div className="px-4 sm:px-6 py-12 text-center text-gray-500">
               No mentors found
             </div>
           ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gray-50 border-b border-gray-200">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-sm font-semibold text-gray-900">Name</th>
-                    <th className="px-6 py-3 text-left text-sm font-semibold text-gray-900">Email</th>
-                    <th className="px-6 py-3 text-left text-sm font-semibold text-gray-900">Expertise</th>
-                    <th className="px-6 py-3 text-center text-sm font-semibold text-gray-900">Status</th>
-                    <th className="px-6 py-3 text-right text-sm font-semibold text-gray-900">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {mentors.map(mentor => (
-                    <tr key={mentor.id} className="border-b border-gray-200 hover:bg-gray-50">
-                      <td className="px-6 py-4 text-sm text-gray-900 font-medium">{mentor.name}</td>
-                      <td className="px-6 py-4 text-sm text-gray-600">{mentor.email}</td>
-                      <td className="px-6 py-4 text-sm text-gray-600">
-                        {mentor.expertise.length > 0 ? (
-                          <div className="flex flex-wrap gap-1">
-                            {mentor.expertise.slice(0, 2).map(exp => (
-                              <span key={exp} className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">
-                                {exp}
-                              </span>
-                            ))}
-                            {mentor.expertise.length > 2 && (
-                              <span className="text-gray-500 text-xs">
-                                +{mentor.expertise.length - 2} more
-                              </span>
-                            )}
-                          </div>
-                        ) : (
-                          <span className="text-gray-400">None</span>
-                        )}
-                      </td>
-                      <td className="px-6 py-4 text-center">
-                        <span
-                          className={`px-3 py-1 rounded-full text-xs font-bold ${
-                            mentor.active
-                              ? 'bg-green-100 text-green-700'
-                              : 'bg-yellow-100 text-yellow-700'
-                          }`}
-                        >
-                          {mentor.active ? 'Active' : 'Inactive'}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 text-right">
-                        <button
-                          onClick={() =>
-                            openModal(mentor, mentor.active ? 'deactivate' : 'activate')
-                          }
-                          className={`px-4 py-2 rounded-lg font-bold text-white transition ${
-                            mentor.active
-                              ? 'bg-red-500 hover:bg-red-600'
-                              : 'bg-green-500 hover:bg-green-600'
-                          }`}
-                        >
-                          {mentor.active ? 'Deactivate' : 'Activate'}
-                        </button>
-                      </td>
+            <>
+              {/* Desktop: Table */}
+              <div className="hidden md:block overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-gray-50 border-b border-gray-200">
+                    <tr>
+                      <th className="px-6 py-3 text-left text-sm font-semibold text-gray-900">Name</th>
+                      <th className="px-6 py-3 text-left text-sm font-semibold text-gray-900">Email</th>
+                      <th className="px-6 py-3 text-left text-sm font-semibold text-gray-900">Expertise</th>
+                      <th className="px-6 py-3 text-center text-sm font-semibold text-gray-900">Status</th>
+                      <th className="px-6 py-3 text-right text-sm font-semibold text-gray-900">Action</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody>
+                    {mentors.map(mentor => (
+                      <tr key={mentor.id} className="border-b border-gray-200 hover:bg-gray-50">
+                        <td className="px-6 py-4 text-sm text-gray-900 font-medium">{mentor.name}</td>
+                        <td className="px-6 py-4 text-sm text-gray-600">{mentor.email}</td>
+                        <td className="px-6 py-4 text-sm text-gray-600">
+                          {mentor.expertise.length > 0 ? (
+                            <div className="flex flex-wrap gap-1">
+                              {mentor.expertise.slice(0, 2).map(exp => (
+                                <span key={exp} className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">
+                                  {exp}
+                                </span>
+                              ))}
+                              {mentor.expertise.length > 2 && (
+                                <span className="text-gray-500 text-xs">
+                                  +{mentor.expertise.length - 2} more
+                                </span>
+                              )}
+                            </div>
+                          ) : (
+                            <span className="text-gray-400">None</span>
+                          )}
+                        </td>
+                        <td className="px-6 py-4 text-center">
+                          <span
+                            className={`px-3 py-1 rounded-full text-xs font-bold ${
+                              mentor.active
+                                ? 'bg-green-100 text-green-700'
+                                : 'bg-yellow-100 text-yellow-700'
+                            }`}
+                          >
+                            {mentor.active ? 'Active' : 'Inactive'}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4 text-right">
+                          <button
+                            onClick={() =>
+                              openModal(mentor, mentor.active ? 'deactivate' : 'activate')
+                            }
+                            className={`px-4 py-2 rounded-lg font-bold text-white transition text-sm ${
+                              mentor.active
+                                ? 'bg-red-500 hover:bg-red-600'
+                                : 'bg-green-500 hover:bg-green-600'
+                            }`}
+                          >
+                            {mentor.active ? 'Deactivate' : 'Activate'}
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Mobile: Cards */}
+              <div className="md:hidden divide-y divide-gray-200">
+                {mentors.map(mentor => (
+                  <div key={mentor.id} className="p-4 flex flex-col gap-3">
+                    <div>
+                      <p className="font-semibold text-gray-900">{mentor.name}</p>
+                      <p className="text-sm text-gray-600 break-all">{mentor.email}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-medium text-gray-500 mb-1">Expertise</p>
+                      {mentor.expertise.length > 0 ? (
+                        <div className="flex flex-wrap gap-1">
+                          {mentor.expertise.slice(0, 3).map(exp => (
+                            <span key={exp} className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">
+                              {exp}
+                            </span>
+                          ))}
+                          {mentor.expertise.length > 3 && (
+                            <span className="text-gray-500 text-xs">+{mentor.expertise.length - 3} more</span>
+                          )}
+                        </div>
+                      ) : (
+                        <span className="text-gray-400 text-sm">None</span>
+                      )}
+                    </div>
+                    <div className="flex items-center justify-between gap-3">
+                      <span
+                        className={`px-3 py-1 rounded-full text-xs font-bold ${
+                          mentor.active ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
+                        }`}
+                      >
+                        {mentor.active ? 'Active' : 'Inactive'}
+                      </span>
+                      <button
+                        onClick={() => openModal(mentor, mentor.active ? 'deactivate' : 'activate')}
+                        className={`flex-1 max-w-[140px] py-2 rounded-lg font-bold text-white text-sm transition ${
+                          mentor.active ? 'bg-red-500 hover:bg-red-600' : 'bg-green-500 hover:bg-green-600'
+                        }`}
+                      >
+                        {mentor.active ? 'Deactivate' : 'Activate'}
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
           )}
         </div>
       </div>
 
       {/* Action Modal */}
       {modal.isOpen && modal.mentor && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 overflow-y-auto">
+          <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-4 sm:p-6 my-auto">
             <h3 className="text-xl font-bold text-gray-900 mb-4">
               {modal.action === 'activate' ? 'Activate Mentor' : 'Deactivate Mentor'}
             </h3>

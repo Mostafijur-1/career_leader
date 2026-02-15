@@ -104,14 +104,14 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
   return (
     <div 
-      className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center p-3 z-50"
+      className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 z-50 overflow-y-auto"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
         }
       }}
     >
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md max-h-[92vh] flex flex-col relative" onClick={(e) => e.stopPropagation()}>
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md max-h-[92vh] flex flex-col relative my-4 sm:my-8" onClick={(e) => e.stopPropagation()}>
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -121,16 +121,16 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
         </button>
 
         {/* Header - Fixed */}
-        <div className={`bg-gradient-to-r ${typeColors[type]} px-6 py-5 text-white text-center flex-shrink-0`}>
-          <div className="text-5xl mb-2">{typeIcons[type]}</div>
-          <h2 className="text-2xl font-bold capitalize">{mode === "login" ? "Welcome Back" : "Join Us"}</h2>
+        <div className={`bg-gradient-to-r ${typeColors[type]} px-4 sm:px-6 py-4 sm:py-5 text-white text-center flex-shrink-0`}>
+          <div className="text-4xl sm:text-5xl mb-1 sm:mb-2">{typeIcons[type]}</div>
+          <h2 className="text-xl sm:text-2xl font-bold capitalize">{mode === "login" ? "Welcome Back" : "Join Us"}</h2>
           <p className="text-white/80 text-sm mt-1">
             {mode === "login" ? "Sign in to your account" : "Create a new account"}
           </p>
         </div>
 
         {/* Form Container - Scrollable */}
-        <div className="flex-1 overflow-y-auto min-h-0 px-6 py-4">
+        <div className="flex-1 overflow-y-auto min-h-0 px-4 sm:px-6 py-3 sm:py-4">
           {/* Mode Toggle */}
           <div className={`flex gap-2 mb-5 ${type === "admin" ? "opacity-50 pointer-events-none" : ""}`}>
             <button
